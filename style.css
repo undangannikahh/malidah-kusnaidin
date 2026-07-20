@@ -139,30 +139,23 @@ p { line-height: 1.6; font-size: 0.95rem; }
 .quran-verse { font-style: italic; color: var(--c-soft-brown); max-width: 600px; margin: 0 auto; font-size: 0.95rem; }
 
 /* 3. Profiles */
-/* 1. KODE SECTION UTAMANYA (Tetap pakai warna dasar) */
 .profiles { 
-    position: relative; /* Wajib ada biar gambar nempel di kotak ini */
-    background-color: var(--c-beige); /* Warna cream ngikutin tema lo */
-    z-index: 1; /* Biar semua teks dan foto aman di atas */
+    position: relative; 
+    background-color: var(--c-beige); 
+    z-index: 1; 
 }
 
-/* 2. KODE BUAT BIKIN BACKGROUND GAMBARNYA TRANSPARAN */
 .profiles::before {
     content: '';
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    
-    /* Pengaturan gambar yang tadi */
     background-image: url('bunga.png'); 
     background-repeat: no-repeat; 
-    background-size: 800px; 
-    background-position: bottom center; /* Arahin sesuka lo */
-    
-    /* INI KUNCI TRANSPARANNYA (Angka 0.1 sampai 1.0) */
-    opacity: 0.4; /* 0.2 artinya cuma kelihatan 20% (sangat pudar/elegan) */
-    
-    z-index: -1; /* Dorong ke paling belakang biar jadi background sejati */
-    pointer-events: none; /* Biar gambarnya gak nutupin interaksi klik tamu */
+    background-size: 900px; 
+    background-position: center; 
+    opacity: 0.4; 
+    z-index: -1; 
+    pointer-events: none; 
 }
 .couple-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; margin-top: 1.5rem; }
 @media(min-width: 768px) { .couple-grid { grid-template-columns: 1fr 1fr; gap: 3rem; } }
@@ -190,9 +183,7 @@ p { line-height: 1.6; font-size: 0.95rem; }
     filter: saturate(95%);
     border-radius: 130px 130px 0 0;
     border: 6px solid var(--c-white);
-    box-shadow:
-0 15px 35px rgba(0,0,0,.08),
-0 0 0 1px rgba(255,255,255,.8);
+    box-shadow: 0 15px 35px rgba(0,0,0,.08), 0 0 0 1px rgba(255,255,255,.8);
 }
 
 .parents { color: var(--c-soft-brown); margin: 10px 0; font-size: 0.9rem; }
@@ -213,12 +204,12 @@ p { line-height: 1.6; font-size: 0.95rem; }
 .countdown-grid { 
     display: grid; 
     grid-template-columns: repeat(4, 1fr); 
-    gap: 8px; /* Gap dikecilin biar pas di layar iPhone SE/320px */
+    gap: 8px; 
     max-width: 400px; margin: 0 auto; 
 }
 .time-box { 
     background: var(--glass-bg); 
-    padding: 10px 5px; /* Padding dipress biar ga tumpah */
+    padding: 10px 5px; 
     border-radius: 10px; backdrop-filter: blur(8px); 
     border: 1px solid var(--glass-border); box-shadow: 0 8px 32px 0 rgba(92, 77, 67, 0.05); 
 }
@@ -231,7 +222,7 @@ p { line-height: 1.6; font-size: 0.95rem; }
 @media(min-width: 768px) { .event-grid { grid-template-columns: 1fr 1fr; } }
 .event-card { 
     background: rgba(255,255,255,0.7); 
-    padding: 2.5rem 1.5rem; /* Padding di-adjust biar gak habisin layar vertical */
+    padding: 2.5rem 1.5rem; 
     border-radius: 15px; text-align: center; border: 1px solid rgba(197, 160, 89, 0.2); 
 }
 .event-icon { font-size: 2rem; color: var(--c-gold); margin-bottom: 1.2rem; }
@@ -239,36 +230,27 @@ p { line-height: 1.6; font-size: 0.95rem; }
 
 /* 6. Gallery (Horizontal Scroll) */
 .gallery { 
-    position: relative; /* Wajib ada biar gambar nempel di kotak ini */
-    background-color: var(--c-ivory); /* Warna cream ngikutin tema lo */
-    z-index: 1; /* Biar semua teks dan foto aman di atas */
+    position: relative; 
+    background-color: var(--c-ivory); 
+    z-index: 1; 
 }
-
-/* 2. KODE BUAT BIKIN BACKGROUND GAMBARNYA TRANSPARAN */
 .gallery::before {
     content: '';
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    
-    /* Pengaturan gambar yang tadi */
     background-image: url('bunga.png'); 
     background-repeat: no-repeat; 
     background-size: 800px; 
-    background-position: bottom center; /* Arahin sesuka lo */
-    
-    /* INI KUNCI TRANSPARANNYA (Angka 0.1 sampai 1.0) */
-    opacity: 0.5; /* 0.2 artinya cuma kelihatan 20% (sangat pudar/elegan) */
-    
-    z-index: -1; /* Dorong ke paling belakang biar jadi background sejati */
-    pointer-events: none; /* Biar gambarnya gak nutupin interaksi klik tamu */
+    background-position: bottom center; 
+    opacity: 0.3; 
+    z-index: -1; 
+    pointer-events: none; 
 }
-
-
 .gallery-scroll {
     display: flex;
     overflow-x: auto;
     gap: 15px;
-    padding: 10px 5px 25px 5px; /* Tambah padding bottom buat shadow & scrollbar */
+    padding: 10px 5px 25px 5px; 
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     cursor: grab;
@@ -276,9 +258,7 @@ p { line-height: 1.6; font-size: 0.95rem; }
 .gallery-scroll::-webkit-scrollbar { height: 6px; }
 .gallery-scroll::-webkit-scrollbar-track { background: var(--c-beige); border-radius: 10px; }
 .gallery-scroll::-webkit-scrollbar-thumb { background: var(--c-gold-light); border-radius: 10px; }
-
 .gallery-item {
-    /* 70vw bikin kelihatan ujung foto sebelahnya, ngasih kode ke tamu untuk SWIPE */
     flex: 0 0 70vw; 
     max-width: 250px; 
     scroll-snap-align: center;
@@ -287,13 +267,12 @@ p { line-height: 1.6; font-size: 0.95rem; }
     outline-offset: -4px; box-shadow: 0 8px 15px rgba(0,0,0,0.06);
 }
 .gallery-item img {
-    width: 100%; height: 320px; /* Tinggi dibikin sedikit portrait elegan */
+    width: 100%; height: 320px; 
     object-fit: cover; display: block;
     transition: transform 0.4s ease, filter 0.4s ease; filter: sepia(5%) contrast(95%);
     pointer-events: none; 
 }
 .gallery-item:hover img { transform: scale(1.05); filter: brightness(1.1); }
-
 .zoom-icon {
     position: absolute; bottom: 10px; right: 10px;
     background: rgba(255, 255, 255, 0.9); color: var(--c-brown);
@@ -302,8 +281,6 @@ p { line-height: 1.6; font-size: 0.95rem; }
     box-shadow: 0 2px 10px rgba(0,0,0,0.2); font-size: 0.8rem;
     transition: all 0.3s ease;
 }
-
-/* Lightbox Modal */
 .lightbox { display: none; position: fixed; z-index: 10000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(62, 54, 46, 0.95); backdrop-filter: blur(5px); }
 .lightbox-content { margin: auto; display: block; width: 90%; max-width: 500px; position: relative; top: 50%; transform: translateY(-50%); border-radius: 10px; box-shadow: 0 0 40px rgba(0,0,0,0.5); animation: zoomIn 0.3s ease; }
 .close-lightbox { position: absolute; top: 20px; right: 20px; color: var(--c-white); font-size: 35px; cursor: pointer; z-index: 10001; transition: transform 0.3s ease; }
@@ -321,19 +298,16 @@ p { line-height: 1.6; font-size: 0.95rem; }
 .gift { background: var(--c-beige); }
 .bank-card { background: var(--c-white); max-width: 320px; margin: 2rem auto 0; padding: 2rem 1.5rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
 .rek-number { font-size: clamp(1.2rem, 5vw, 1.5rem); font-weight: 600; letter-spacing: 2px; margin: 15px 0 5px; }
-
-
-/* --- Styling Khusus Gambar QRIS --- */
 .qris-img {
     width: 100%;
-    max-width: 220px; /* Bikin ukurannya pas di layar HP */
+    max-width: 220px;
     height: auto;
     margin: 15px auto;
     display: block;
     border-radius: 12px;
-    border: 2px dashed var(--c-gold-light); /* Kasih bingkai putus-putus biar elegan */
+    border: 2px dashed var(--c-gold-light);
     padding: 10px; 
-    background-color: var(--c-white); /* Pastikan background putih biar gampang di-scan */
+    background-color: var(--c-white); 
 }
 
 /* 9. Toast & Form */
@@ -342,16 +316,12 @@ p { line-height: 1.6; font-size: 0.95rem; }
 .wishes { background: var(--c-ivory); }
 .form-wrapper { max-width: 600px; margin: 0 auto; background: var(--c-white); padding: 1.5rem; border-radius: 15px; border: 1px solid var(--c-beige); }
 
-/* PENTING DI MOBILE: font-size 16px mencegah iPhone auto-zoom saat user klik kolom form */
 #wish-form input, #wish-form textarea { 
     width: 100%; padding: 14px 15px; margin-bottom: 12px; border: 1px solid var(--c-gold-light); 
-    border-radius: 8px; font-family: var(--f-sans); font-size: 16px; /* Wajib 16px */
+    border-radius: 8px; font-family: var(--f-sans); font-size: 16px; 
     background-color: var(--c-ivory);
 }
-#wish-form input:focus, #wish-form textarea:focus {
-    outline: none; border-color: var(--c-gold);
-}
-
+#wish-form input:focus, #wish-form textarea:focus { outline: none; border-color: var(--c-gold); }
 .wishes-list { margin-top: 1.5rem; max-height: 250px; overflow-y: auto; padding-right: 10px; }
 .wish-card { padding: 12px 0; border-bottom: 1px solid var(--c-beige); }
 .wish-card h4 { font-size: 1rem; margin-bottom: 3px; }
@@ -360,7 +330,6 @@ p { line-height: 1.6; font-size: 0.95rem; }
 /* Animations & Petals */
 .slide-up { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
 .slide-up.visible { opacity: 1; transform: translateY(0); }
-
 .petal {
     position: fixed; top: -10%; z-index: 9998; pointer-events: none;
     background: linear-gradient(135deg, var(--c-gold-light) 0%, #ffffff 100%);
@@ -394,3 +363,70 @@ p { line-height: 1.6; font-size: 0.95rem; }
     z-index: 10000; display: none; animation: spin 4s linear infinite; animation-play-state: paused; 
 }
 #music-control i { font-size: 1.1rem; }
+
+/* 🌟 TAMBAHAN: Tombol Auto Scroll (Ada di atas tombol musik) 🌟 */
+#autoscroll-control {
+    position: fixed; bottom: 75px; right: 20px; width: 45px; height: 45px;
+    border-radius: 50%; background: var(--c-gold); color: var(--c-white);
+    border: none; box-shadow: 0 4px 10px rgba(0,0,0,0.2); cursor: pointer;
+    z-index: 10000; display: none; transition: all 0.3s;
+}
+#autoscroll-control i { font-size: 1.1rem; }
+
+/* 🌟 TAMBAHAN: Animasi Burung Merpati Terbang 🌟 */
+#moving-decor {
+    position: fixed;
+    top: 25%;
+    left: -100px;
+    font-size: 2rem;
+    color: var(--c-gold);
+    opacity: 0.6;
+    z-index: 9997;
+    pointer-events: none;
+    animation: flyAcross 15s linear infinite;
+}
+@keyframes flyAcross {
+    0% { transform: translate(0, 0) scaleX(1); opacity: 0; }
+    10% { opacity: 0.8; }
+    50% { transform: translate(50vw, -30px) scaleX(1); }
+    90% { opacity: 0.8; }
+    100% { transform: translate(110vw, -60px) scaleX(1); opacity: 0; }
+}
+
+
+
+/* =========================================
+   UPDATE DESAIN MEWAH (JANGAN DIHAPUS)
+   ========================================= */
+
+/* 1. Efek Kaca (Glassmorphism) untuk semua kotak */
+.profile-card, .event-card, .bank-card, .timeline-content {
+    background: rgba(255, 255, 255, 0.65) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.6) !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02), 0 10px 30px rgba(92,77,67,0.05) !important;
+}
+
+/* 2. Efek Teks Tinta Emas */
+.section-title, .name-script {
+    background: linear-gradient(45deg, var(--c-gold-hover), var(--c-gold-light), var(--c-gold)) !important;
+    background-size: 200% auto !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    animation: shine 5s linear infinite !important;
+}
+@keyframes shine {
+    to { background-position: 200% center; }
+}
+
+/* 3. Efek Tekstur Kertas Premium di Background */
+body::after {
+    content: ""; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+    opacity: 0.3; pointer-events: none; z-index: 9999; 
+}
+
+/* 4. Animasi Kotak Muncul Bertahap pas di-scroll */
+.couple-grid .profile-card:nth-child(1), .event-grid .event-card:nth-child(1) { transition-delay: 0.1s !important; }
+.couple-grid .profile-card:nth-child(2), .event-grid .event-card:nth-child(2) { transition-delay: 0.3s !important; }
