@@ -27,10 +27,10 @@
     <button id="music-control" onclick="toggleMusic()">
         <i class="fas fa-music"></i>
     </button>
-    
-    <!-- TOMBOL AUTO SCROLL -->
-    <button id="autoscroll-control" onclick="toggleAutoScroll()" title="Auto Scroll">
-        <i class="fas fa-arrow-down"></i>
+
+    <<!-- TOMBOL AUTO SCROLL (BARU) -->
+    <button id="autoscroll-control" onclick="toggleAutoScroll()">
+        <i class="fas fa-play"></i> Auto Scroll
     </button>
 
     <!-- 1. Opening / Cover -->
@@ -69,42 +69,32 @@
             </div>
         </section>
 
-       <!-- 3. Profil Mempelai -->
-        <section class="profiles slide-up relative-section">
+        <!-- 3. Profil Mempelai (Hapus slide-up di section ini) -->
+        <section class="profiles relative-section">
             <div class="container text-center relative-z">
-                <h2 class="section-title">Sang Mempelai</h2>
+                <h2 class="section-title slide-up">Sang Mempelai</h2>
                 <div class="couple-grid">
                     
-                    <!-- Mempelai Pria -->
-                    <div class="profile-card">
+                    <!-- Mempelai Pria (Tambah slide-up di sini) -->
+                    <div class="profile-card slide-up">
                         <div class="photo-frame-ornate">
-                            <!-- FOTO ASLI MEMPELAI -->
                             <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=500&auto=format&fit=crop" class="portrait-img" alt="Aslam">
-                            
-                          
                         </div>
-                        <h3 class="name-script">Shalahuddin Aslam</h3>
-                        <p class="parents">Putra dari Bapak Fulan & Ibu Fulanah</p>
-                        <!-- Link IG Mempelai Pria -->
-                        <a href="https://instagram.com/aslam" target="_blank" class="ig-link">
+                        <h3 class="name-script slide-up">Shalahuddin Aslam</h3>
+                        <p class="parents slide-up">Putra dari Bapak Fulan & Ibu Fulanah</p>
+                        <a href="https://instagram.com/aslam" target="_blank" class="ig-link slide-up">
                             <i class="fab fa-instagram"></i> @aslam
                         </a>
                     </div>
 
-                    <!-- Mempelai Wanita -->
-                    <div class="profile-card">
-                      
+                    <!-- Mempelai Wanita (Tambah slide-up di sini) -->
+                    <div class="profile-card slide-up">
                         <div class="photo-frame-ornate">
-                            
-                            <!-- FOTO ASLI MEMPELAI -->
                             <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=500&auto=format&fit=crop" class="portrait-img" alt="Bride">
-                            
-                            
                         </div>
-                        <h3 class="name-script">Nama Mempelai Wanita</h3>
-                        <p class="parents">Putri dari Bapak Fulan & Ibu Fulanah</p>
-                        <!-- Link IG Mempelai Wanita -->
-                        <a href="https://instagram.com/pasangan" target="_blank" class="ig-link">
+                        <h3 class="name-script slide-up">Nama Mempelai Wanita</h3>
+                        <p class="parents slide-up">Putri dari Bapak Fulan & Ibu Fulanah</p>
+                        <a href="https://instagram.com/pasangan" target="_blank" class="ig-link slide-up">
                             <i class="fab fa-instagram"></i> @pasangan
                         </a>
                     </div>
@@ -112,46 +102,44 @@
                 </div>
             </div>
         </section>
-
         <!-- 4. Countdown -->
         <section class="countdown-section slide-up">
             <div class="container text-center">
-                <h2 class="section-title">Menuju Hari Bahagia</h2>
+                <h2 class="section-title slide-up">Menuju Hari Bahagia</h2>
                 <div id="countdown" class="countdown-grid">
-                    <div class="time-box"><span id="days">00</span><p>Hari</p></div>
-                    <div class="time-box"><span id="hours">00</span><p>Jam</p></div>
-                    <div class="time-box"><span id="minutes">00</span><p>Menit</p></div>
-                    <div class="time-box"><span id="seconds">00</span><p>Detik</p></div>
+                    <div class="time-box slide-up"><span id="days">00</span><p>Hari</p></div>
+                    <div class="time-box slide-up"><span id="hours">00</span><p>Jam</p></div>
+                    <div class="time-box slide-up"><span id="minutes">00</span><p>Menit</p></div>
+                    <div class="time-box slide-up"><span id="seconds">00</span><p>Detik</p></div>
                 </div>
             </div>
         </section>
 
-        <!-- 5. Detail Acara -->
-        <section class="events slide-up relative-section">
+        <!-- 5. Detail Acara (Hapus slide-up di section ini) -->
+        <section class="events relative-section">
             <div class="container relative-z">
-                <h2 class="section-title text-center">Rangkaian Acara</h2>
+                <h2 class="section-title text-center slide-up">Rangkaian Acara</h2>
                 <div class="event-grid">
-                    <div class="event-card">
-                        <i class="fas fa-ring event-icon"></i>
-                        <h3>Akad Nikah</h3>
-                        <p class="event-date">Sabtu, 25 November 2026</p>
-                        <p class="event-time">08:00 - 10:00 WITA</p>
-                        <p class="event-location">Masjid Agung<br>Jl. Nama Jalan No. 123, Kota</p>
-                        
-                        <a href="https://maps.google.com" target="_blank" class="btn-outline-gold">Lihat Lokasi</a>
+                    <!-- Card Akad (Tambah slide-up di sini) -->
+                    <div class="event-card slide-up">
+                        <i class="fas fa-ring event-icon slide-up"></i>
+                        <h3 class="event-judul slide-up">Akad Nikah</h3>
+                        <p class="event-date slide-up">Sabtu, 25 November 2026</p>
+                        <p class="event-time slide-up">08:00 - 10:00 WITA</p>
+                        <p class="event-location slide-up">Masjid Agung<br>Jl. Nama Jalan No. 123, Kota</p>
+                        <a href="https://maps.google.com" target="_blank" class="btn-outline-gold slide-up">Lihat Lokasi</a>
                     </div>
-                    <div class="event-card">
-                        <i class="fas fa-glass-cheers event-icon"></i>
-                        <h3>Resepsi</h3>
-                        <p class="event-date">Sabtu, 25 November 2026</p>
-                        <p class="event-time">11:00 - Selesai</p>
-                        <p class="event-location">Gedung Serbaguna<br>Jl. Nama Jalan No. 456, Kota</p>
-                        <a href="https://maps.google.com" target="_blank" class="btn-outline-gold">Lihat Lokasi</a>
-
-                        <!-- TAMBAHIN KODE INI (TOMBOL KALENDER) -->
-    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Akad+Nikah+Aslam+%26+Pasangan&dates=20261125T000000Z/20261125T020000Z&details=Kehadiran+Anda+adalah+doa+restu+bagi+kami.&location=Masjid+Agung" target="_blank" class="btn-gold" style="margin-bottom: 10px; display: inline-block; width: 100%;">
-        <i class="far fa-calendar-alt"></i> Simpan ke Kalender
-    </a>
+                    <!-- Card Resepsi (Tambah slide-up di sini) -->
+                    <div class="event-card slide-up">
+                        <i class="fas fa-glass-cheers event-icon slide-up"></i>
+                        <h3 class="slide-up">Resepsi</h3>
+                        <p class="event-date slide-up">Sabtu, 25 November 2026</p>
+                        <p class="event-time slide-up">11:00 - Selesai</p>
+                        <p class="event-location slide-up">Gedung Serbaguna<br>Jl. Nama Jalan No. 456, Kota</p>
+                        <a href="https://maps.google.com" target="_blank" class="btn-outline-gold slide-up">Lihat Lokasi</a>
+                        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Akad+Nikah+Aslam+%26+Pasangan&dates=20261125T000000Z/20261125T020000Z&details=Kehadiran+Anda+adalah+doa+restu+bagi+kami.&location=Masjid+Agung" target="_blank" class="btn-gold slide-up" style="margin-bottom: 5px; margin-top: 1.4rem; display: inline-block; width: 100%;">
+                            <i class="far fa-calendar-alt "></i> Simpan ke Kalender
+                        </a>
                     </div>
                 </div>
             </div>
@@ -160,7 +148,7 @@
         <!-- 6. Galeri Foto -->
         <section class="gallery slide-up">
             <div class="container">
-                <h2 class="section-title text-center">Momen Berharga</h2>
+                <h2 class="section-title text-center slide-up">Momen Berharga</h2>
                 
                 <!-- Diubah menjadi gallery-scroll untuk efek geser ke samping -->
                 <div class="gallery-scroll">
@@ -212,9 +200,9 @@
         <!-- 7. Love Story -->
         <section class="love-story slide-up">
             <div class="container">
-                <h2 class="section-title text-center">Kisah Cinta</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
+                <h2 class="section-title text-center slide-up">Kisah Cinta</h2>
+                <div class="timeline slide-up">
+                    <div class="timeline-item slide-up">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
                             <h4>Pertama Bertemu</h4>
@@ -222,7 +210,7 @@
                             <p>Pertemuan pertama yang sederhana namun meninggalkan kesan mendalam bagi kami berdua.</p>
                         </div>
                     </div>
-                    <div class="timeline-item">
+                    <div class="timeline-item slide-up">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
                             <h4>Lamaran</h4>
@@ -240,30 +228,30 @@
                 <h2 class="section-title">Wedding Gift</h2>
                 <p>Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Namun jika Anda bermaksud memberikan tanda kasih, dapat melalui:</p>
                 
-                <div class="bank-card">
-                    <i class="fas fa-university fa-2x gold-text"></i>
-                    <h3>BCA</h3>
-                    <p id="rek-bca" class="rek-number">1234567890</p>
-                    <p>a.n Shalahuddin Aslam</p>
-                    <button class="btn-outline-gold btn-copy" onclick="copyRekening('rek-bca')">
+                <div class="bank-card slide-up">
+                    <i class="fas fa-university fa-2x gold-text slide-up"></i>
+                    <h3 class="slide-up">BCA</h3>
+                    <p id="rek-bca" class="rek-number slide-up">1234567890</p>
+                    <p class="slide-up">a.n Shalahuddin Aslam</p>
+                    <button class="btn-outline-gold btn-copy slide-up" onclick="copyRekening('rek-bca')">
                         <i class="far fa-copy"></i> Salin Rekening
                     </button>
                 </div>
 
-                <div class="bank-card" style="margin-top: 1.5rem;">
-                    <i class="fas fa-qrcode fa-2x gold-text"></i>
-                    <h3>QRIS</h3>
+                <div class="bank-card slide-up " style="margin-top: 1.5rem;">
+                    <i class="fas fa-qrcode fa-2x gold-text slide-up"></i>
+                    <h3 class="slide-up">QRIS</h3>
                     
                     <!-- Pastikan src gambar ini sesuai dengan nama file QRIS lo -->
-                    <img src="gambar-qris-lo.png" alt="QRIS Wedding" class="qris-img">
+                    <img src="gambar-qris-lo.png" alt="QRIS Wedding" class="qris-img slide-up">
                     
-                    <p>a.n Shalahuddin Aslam</p>
-                    <button class="btn-outline-gold btn-copy" onclick="downloadQRIS()">
-                        <i class="fas fa-download"></i> Simpan QRIS
+                    <p class="slide-up">a.n Shalahuddin Aslam</p>
+                    <button class="btn-outline-gold btn-copy slide-up" onclick="downloadQRIS()">
+                        <i class="fas fa-download slide-up"></i> Simpan QRIS
                     </button>
                 </div>
             </div>
-            <div id="toast" class="toast">Mudah-mudahan menjadi berkah ✨</div>
+            <div id="toast" class="toast slide-up">Mudah-mudahan menjadi berkah ✨</div>
         </section>
 
         <!-- 9. Ucapan & Doa -->
@@ -294,6 +282,11 @@
                 <p class="thank-you">Terima Kasih</p>
                 <h2 class="title">Aslam & Pasangan</h2>
                 <p class="family-name">Keluarga Besar Bapak Fulan & Bapak Fulan</p>
+            </div>
+
+            <!-- IKLAN / CREDIT DEVELOPER LO -->
+            <div class="developer-credit">
+                <p>POWERED BY <a href="https://instagram.com/aslam" target="_blank">ASLAMEMWA</a></p>
             </div>
         </footer>
     </main>
