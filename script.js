@@ -174,7 +174,7 @@ function showToast(message) {
 }
 
 // DATABASE GOOGLE SHEETS LU 
-const scriptURL = 'https://script.google.com/macros/s/AKfycbxLegGc007uyO4UtePWFiTYXbndf9rhXpAHbXpGr3cHdunKDRthyOu9qaP8dIkDPIcN-A/exec'; 
+const scriptURL = 'https://script.google.com/macros/s/AKfycbxLegGcO07uyO4UtePWFiTYXbndf9rhXpAHbXpGr3cHdunKDRthyOu9qaP8dIkDPIcN-A/exec'; 
 
 const form = document.getElementById('wish-form');
 const wishesList = document.getElementById('wishes-list');
