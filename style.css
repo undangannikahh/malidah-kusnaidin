@@ -97,7 +97,7 @@ p { line-height: 1.6; font-size: 0.95rem; }
 .relative-z { position: relative; z-index: 10; }
 
 /* 2. Hero */
-.hero {  display: flex; align-items: center; justify-content: center; padding: 5rem 1.2rem; }
+.hero {  display: flex; align-items: center; justify-content: center; padding: 2rem 1.2rem; }
 .bismillah { font-size: 1.6rem; font-weight: bold; margin-bottom: 1rem; color: var(--c-gold); }
 .quran-verse { font-style: italic; color: var(--c-soft-brown); max-width: 600px; margin: 0 auto; font-size: 0.95rem; }
 
