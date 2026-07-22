@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('guest-name').innerText = formattedName;
     }
 
-    // UPGRADE 4: Logika Animasi Scroll Beragam (Baca class .anim)
     const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -21,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    // Pantau semua elemen yang punya class anim
     document.querySelectorAll('.anim').forEach(el => observer.observe(el));
 
     // Countdown
@@ -54,26 +52,26 @@ document.addEventListener('DOMContentLoaded', () => {
         let scrollLeft;
 
         galleryScroll.addEventListener('mousedown', (e) => {
-        isDown = true;
-        galleryScroll.classList.add('is-dragging'); // Matikan snap CSS
-        startX = e.pageX - galleryScroll.offsetLeft;
-        scrollLeft = galleryScroll.scrollLeft;
-    });
-    galleryScroll.addEventListener('mouseleave', () => {
-        isDown = false;
-        galleryScroll.classList.remove('is-dragging'); // Nyalakan lagi snap CSS
-    });
-    galleryScroll.addEventListener('mouseup', () => {
-        isDown = false;
-        galleryScroll.classList.remove('is-dragging'); // Nyalakan lagi snap CSS
-    });
-    galleryScroll.addEventListener('mousemove', (e) => {
-        if (!isDown) return;
-        e.preventDefault(); 
-        const x = e.pageX - galleryScroll.offsetLeft;
-        const walk = (x - startX) * 2; 
-        galleryScroll.scrollLeft = scrollLeft - walk;
-    });
+            isDown = true;
+            galleryScroll.classList.add('is-dragging');
+            startX = e.pageX - galleryScroll.offsetLeft;
+            scrollLeft = galleryScroll.scrollLeft;
+        });
+        galleryScroll.addEventListener('mouseleave', () => {
+            isDown = false;
+            galleryScroll.classList.remove('is-dragging');
+        });
+        galleryScroll.addEventListener('mouseup', () => {
+            isDown = false;
+            galleryScroll.classList.remove('is-dragging');
+        });
+        galleryScroll.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault(); 
+            const x = e.pageX - galleryScroll.offsetLeft;
+            const walk = (x - startX) * 2; 
+            galleryScroll.scrollLeft = scrollLeft - walk;
+        });
     }
 });
 
@@ -104,26 +102,24 @@ const bgMusic = document.getElementById('bg-music');
 const musicCtrl = document.getElementById('music-control');
 
 function openInvitation() {
-    // 1. Naikkan cover dan buka kunci scroll
+    // 1. Geser cover dan buka kunci body
     document.getElementById('cover').style.transform = 'translateY(-100vh)';
     document.body.classList.remove('locked');
     
-    // 2. Mainkan musik
+    // 2. Mainkan musik dengan penanganan aman untuk kebijakan browser mobile
     bgMusic.play().then(() => {
         isPlaying = true;
         musicCtrl.style.display = 'block'; 
         musicCtrl.style.animationPlayState = 'running'; 
     }).catch(error => console.log("Auto-play prevented by browser"));
     
-    // 3. Tampilkan tombol kontrol scroll
+    // 3. Tampilkan tombol kontrol
     document.getElementById('autoscroll-control').style.display = 'block';
 
-    // 4. AUTO-SCROLL PROFESIONAL (Jeda 800ms)
-    setTimeout(() => {
-        if (!isAutoScrolling) {
-            toggleAutoScroll();
-        }
-    }, 800); 
+    // 4. SAFARI & CHROME SAFE: Langsung aktifkan auto-scroll di dalam klik user (Zero Delay)
+    if (!isAutoScrolling) {
+        toggleAutoScroll();
+    }
 }
 
 function toggleMusic() {
@@ -140,23 +136,29 @@ function toggleMusic() {
 }
 
 // ==========================================
-// AUTO-SCROLL KELAS PROFESIONAL (TIME-BASED / DELTA TIME)
+// AUTO-SCROLL UNIVERSAL ENGINE (CROSS-BROWSER)
 // ==========================================
 let isAutoScrolling = false;
 let scrollAnimation;
 let lastTime = 0;
-const SCROLL_SPEED = 55; // Kecepatan scroll (px/detik)
+const SCROLL_SPEED = 40; // Kecepatan optimal agar mata nyaman membaca di semua jenis layar HP
 
-function autoScrollStep(currentTime) {
+function autoScrollStep(timestamp) {
     if (!isAutoScrolling) return;
 
-    if (!lastTime) lastTime = currentTime;
-    const deltaTime = currentTime - lastTime;
-    lastTime = currentTime;
+    if (!lastTime) lastTime = timestamp;
+    const elapsed = timestamp - lastTime;
+    lastTime = timestamp;
 
-    const scrollDistance = (SCROLL_SPEED * deltaTime) / 1000;
+    const distance = (SCROLL_SPEED * elapsed) / 1000;
+    window.scrollBy(0, distance);
     
-    window.scrollBy(0, scrollDistance);
+    // Berhenti otomatis jika sudah mencapai bagian paling bawah halaman
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 5) {
+        toggleAutoScroll();
+        return;
+    }
+
     scrollAnimation = requestAnimationFrame(autoScrollStep);
 }
 
@@ -178,9 +180,12 @@ function toggleAutoScroll() {
     }
 }
 
-['wheel', 'touchmove'].forEach(evt => {
+// Interupsi manual: Sentuhan jari atau *scroll* manual oleh tamu langsung mematikan auto-scroll dengan mulus
+['mousedown', 'touchstart', 'wheel'].forEach(evt => {
     window.addEventListener(evt, () => {
-        if(isAutoScrolling) toggleAutoScroll();
+        if (isAutoScrolling) {
+            toggleAutoScroll();
+        }
     }, { passive: true });
 });
 
@@ -204,7 +209,7 @@ function showToast(message) {
     setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
 }
 
-// DATABASE GOOGLE SHEETS LU 
+// DATABASE GOOGLE SHEETS
 const scriptURL = 'https://script.google.com/macros/s/AKfycbxLegGcO07uyO4UtePWFiTYXbndf9rhXpAHbXpGr3cHdunKDRthyOu9qaP8dIkDPIcN-A/exec'; 
 
 const form = document.getElementById('wish-form');
@@ -273,12 +278,10 @@ function toggleReadMore(btn) {
     const moreText = card.querySelector('.more-text');
 
     if (dots.style.display === "none") {
-        // Kalau teks lagi kebuka, kita tutup lagi
         dots.style.display = "inline";
         btn.innerHTML = "Baca selengkapnya";
         moreText.style.display = "none";
     } else {
-        // Kalau teks lagi ketutup, kita buka
         dots.style.display = "none";
         btn.innerHTML = "Tutup sedikit"; 
         moreText.style.display = "inline";
