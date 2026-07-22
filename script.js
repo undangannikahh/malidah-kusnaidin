@@ -148,7 +148,7 @@ let scrollAnimation;
 // Fungsi mesin penggeraknya (sync dengan refresh rate layar)
 function autoScrollStep() {
     if (isAutoScrolling) {
-        window.scrollBy(0, 1.5); // Angka 1.5 ini kecepatan turunnya. (Makin gede makin ngebut)
+        window.scrollBy(0, 1); // Angka 1.5 ini kecepatan turunnya. (Makin gede makin ngebut)
         scrollAnimation = requestAnimationFrame(autoScrollStep);
     }
 }
