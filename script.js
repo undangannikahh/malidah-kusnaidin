@@ -118,13 +118,12 @@ function openInvitation() {
     // 3. Tampilkan tombol kontrol scroll
     document.getElementById('autoscroll-control').style.display = 'block';
 
-    // 4. AUTO-SCROLL PROFESIONAL (Berjalan otomatis setelah 1.5 detik)
+    // 4. AUTO-SCROLL PROFESIONAL (Jeda 0.4 detik langsung gass!)
     setTimeout(() => {
-        // Cek dulu, kalau tamu belum nekan tombol apa-apa, jalankan scroll
         if (!isAutoScrolling) {
             toggleAutoScroll();
         }
-    }, 1500); // 1500 milidetik = 1.5 detik jeda estetik
+    }, 400); // <-- 400ms biar sat-set
 }
 
 function toggleMusic() {
@@ -140,24 +139,36 @@ function toggleMusic() {
     isPlaying = !isPlaying;
 }
 
+// ==========================================
+// AUTO-SCROLL CROSS-BROWSER OPTIMIZATION
+// ==========================================
 let isAutoScrolling = false;
-let autoScrollInterval;
+let scrollAnimation;
+
+// Fungsi mesin penggeraknya (sync dengan refresh rate layar)
+function autoScrollStep() {
+    if (isAutoScrolling) {
+        window.scrollBy(0, 1.5); // Angka 1.5 ini kecepatan turunnya. (Makin gede makin ngebut)
+        scrollAnimation = requestAnimationFrame(autoScrollStep);
+    }
+}
 
 function toggleAutoScroll() {
     const btn = document.getElementById('autoscroll-control');
     
     if (isAutoScrolling) {
-        clearInterval(autoScrollInterval);
+        // Matikan scroll
+        isAutoScrolling = false;
+        cancelAnimationFrame(scrollAnimation);
         btn.innerHTML = '<i class="fas fa-play"></i> Auto Scroll';
         btn.style.background = 'var(--c-gold)';
     } else {
-        autoScrollInterval = setInterval(() => {
-            window.scrollBy(0, 1);
-        }, 20); 
+        // Nyalakan scroll
+        isAutoScrolling = true;
+        scrollAnimation = requestAnimationFrame(autoScrollStep);
         btn.innerHTML = '<i class="fas fa-pause"></i> Stop Scroll';
         btn.style.background = 'var(--c-gold-hover)';
     }
-    isAutoScrolling = !isAutoScrolling;
 }
 
 ['wheel', 'touchmove'].forEach(evt => {
@@ -245,3 +256,24 @@ form.addEventListener('submit', e => {
             showToast("Gagal mengirim ucapan, periksa koneksi internet.");
         });
 });
+
+// ==========================================
+// FITUR BACA SELENGKAPNYA (READ MORE)
+// ==========================================
+function toggleReadMore(btn) {
+    const card = btn.parentElement;
+    const dots = card.querySelector('.dots');
+    const moreText = card.querySelector('.more-text');
+
+    if (dots.style.display === "none") {
+        // Kalau teks lagi kebuka, kita tutup lagi
+        dots.style.display = "inline";
+        btn.innerHTML = "Baca selengkapnya";
+        moreText.style.display = "none";
+    } else {
+        // Kalau teks lagi ketutup, kita buka
+        dots.style.display = "none";
+        btn.innerHTML = "Tutup sedikit"; 
+        moreText.style.display = "inline";
+    }
+}
