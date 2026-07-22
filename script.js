@@ -123,7 +123,7 @@ function openInvitation() {
         if (!isAutoScrolling) {
             toggleAutoScroll();
         }
-    }, 400); // <-- 400ms biar sat-set
+    }, 1500); // <-- 400ms biar sat-set
 }
 
 function toggleMusic() {
